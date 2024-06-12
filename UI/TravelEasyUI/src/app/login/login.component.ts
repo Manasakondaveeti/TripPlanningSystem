@@ -1,30 +1,34 @@
-
 import { Component } from '@angular/core';
-import { AuthService } from '../auth.service';
-import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-
+import { FormsModule } from '@angular/forms';
+interface LoginResponse {
+  message: string;
+  
+}
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, HttpClientModule , CommonModule , RouterModule], 
-  templateUrl: './login.component.html'
+  imports: [FormsModule , HttpClientModule] ,
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  username: string = '';
-  password: string = '';
+  username: string ="";
+  password: string="";
 
-  constructor(private authService: AuthService) {}
+  constructor(private http: HttpClient) {}
 
-  onLogin(): void {
-    this.authService.login().subscribe(data => {
-      console.log('Login successful');
-      // Redirect or manage login success here
-    }, error => {
-      console.error('Login failed');
-      // Handle login failure here
+  login() {
+    const user = { username: this.username, password: this.password };
+    this.http.post<LoginResponse>('http://localhost:8080/auth/login', user).subscribe({
+      next: (response) => {
+        alert(response.message); // Now TypeScript knows about the `message` property.
+        console.log('Response:', response);
+      },
+      error: (error) => {
+        console.error('Login error:', error);
+        alert('Failed to login. Please check your credentials and try again.');
+      }
     });
   }
 }

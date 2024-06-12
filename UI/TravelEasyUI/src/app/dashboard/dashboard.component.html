@@ -1,0 +1,45 @@
+<div class="header">
+    <h1>Find your next stay</h1>
+    <p>Search deals on hotels, homes, and much more...</p>
+    <div class="header-buttons">
+        <button onclick="location.href='register.html'">Register</button>
+        <button routerLink="/login">Sign In</button>
+        <button routerLink="/register">Registerrrrrrr</button>
+  
+    </div>
+  </div>
+  
+  <div class="search-container">
+    <input type="text" placeholder="Where are you going?" aria-label="Destination">
+    <input type="text" placeholder="Check-in Date" aria-label="Check-in Date">
+    <input type="text" placeholder="Check-out Date" aria-label="Check-out Date">
+    <div class="dropdown">
+        <span>2 adults · 0 children · 1 room</span>
+        <div class="dropdown-content">
+            <div class="input-group">
+                <label>Adults</label>
+                <button onclick="decrement('adults')">-</button>
+                <input type="number" id="adults" value="2">
+                <button onclick="increment('adults')">+</button>
+            </div>
+            <div class="input-group">
+                <label>Children</label>
+                <button onclick="decrement('children')">-</button>
+                <input type="number" id="children" value="0">
+                <button onclick="increment('children')">+</button>
+            </div>
+            <div class="input-group">
+                <label>Rooms</label>
+                <button onclick="decrement('rooms')">-</button>
+                <input type="number" id="rooms" value="1">
+                <button onclick="increment('rooms')">+</button>
+            </div>
+            <div class="input-group toggle">
+                <label>Traveling with pets?</label>
+                <input type="checkbox">
+            </div>
+            <button class="done-button">Done</button>
+        </div>
+    </div>
+    <button type="submit">Search</button>
+  </div>
