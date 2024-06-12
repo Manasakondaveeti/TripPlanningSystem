@@ -1,45 +1,38 @@
-<div class="header">
-    <h1>Find your next stay</h1>
-    <p>Search deals on hotels, homes, and much more...</p>
-    <div class="header-buttons">
-        <button onclick="location.href='register.html'">Register</button>
-        <button routerLink="/login">Sign In</button>
-        <button routerLink="/register">Registerrrrrrr</button>
-  
-    </div>
-  </div>
-  
-  <div class="search-container">
-    <input type="text" placeholder="Where are you going?" aria-label="Destination">
-    <input type="text" placeholder="Check-in Date" aria-label="Check-in Date">
-    <input type="text" placeholder="Check-out Date" aria-label="Check-out Date">
-    <div class="dropdown">
-        <span>2 adults · 0 children · 1 room</span>
-        <div class="dropdown-content">
-            <div class="input-group">
-                <label>Adults</label>
-                <button onclick="decrement('adults')">-</button>
-                <input type="number" id="adults" value="2">
-                <button onclick="increment('adults')">+</button>
+
+    <header class="main-header">
+        <div class="header-content">
+            <h1>Find your next stay</h1>
+            <p>Search deals on hotels, homes, and much more...</p>
+            <div class="header-buttons">
+                <button>Sign In</button>
+                <button>Register</button>
             </div>
-            <div class="input-group">
-                <label>Children</label>
-                <button onclick="decrement('children')">-</button>
-                <input type="number" id="children" value="0">
-                <button onclick="increment('children')">+</button>
-            </div>
-            <div class="input-group">
-                <label>Rooms</label>
-                <button onclick="decrement('rooms')">-</button>
-                <input type="number" id="rooms" value="1">
-                <button onclick="increment('rooms')">+</button>
-            </div>
-            <div class="input-group toggle">
-                <label>Traveling with pets?</label>
-                <input type="checkbox">
-            </div>
-            <button class="done-button">Done</button>
         </div>
+        <nav class="navbar">
+            <a href="#" class="active">Stays</a>
+            <a href="#">Flights</a>
+            <a href="#">Flight + Hotel</a>
+            <a href="#">Car rentals</a>
+            <a href="#">Attractions</a>
+            <a href="#">Airport taxis</a>
+        </nav>
+    </header>
+    <div class="search-container">
+        <h2>Search hotels in New York City</h2>
+        <form class="search-form">
+            <input type="text" placeholder="New York City" name="location">
+            <input type="date" name="checkin">
+            <input type="date" name="checkout">
+            <select name="guests">
+                <option value="1">1 Adult</option>
+                <option value="2">2 Adults</option>
+                <option value="3">3 Adults</option>
+                <option value="4">4 Adults</option>
+            </select>
+            <button type="submit">Search</button>
+        </form>
     </div>
-    <button type="submit">Search</button>
-  </div>
+    <footer>
+        <p>Privacy Policy · Contact Us · © UniversityoOfWindsor 2024</p>
+    </footer>
+

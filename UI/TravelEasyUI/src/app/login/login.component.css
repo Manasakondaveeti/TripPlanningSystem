@@ -1,0 +1,51 @@
+html, body {
+    height: 100%; /* Ensure minimum height for the body is 100% of the viewport */
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.container {
+    background-image: url('https://img.freepik.com/premium-photo/illustration-famous-monument-world_117023-16.jpg'); /* Replace with your image URL */
+    min-height: 100vh; /* Minimum height of container is 100% of the viewport height */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed; /* Keep the background fixed during scroll */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+input[type="email"], input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    opacity: 0.8;
+}
+
+footer {
+    text-align: center;
+    font-size: 12px;
+}
