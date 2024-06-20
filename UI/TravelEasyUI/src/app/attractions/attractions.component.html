@@ -12,16 +12,31 @@
           </div>
         </div>
       </div>
-      <div class="tourist-places" *ngIf="touristPlaces.length > 0">
-        <h2>Top Attractions in {{ selectedCity }}</h2>
-        <div class="tourist-place" *ngFor="let touristPlace of touristPlaces">
-          <img [src]="touristPlace.imageUrl" alt="{{ touristPlace.name }}" class="tourist-place-img">
-          <div class="tourist-place-content">
-            <h3>{{ touristPlace.name }}</h3>
-            <p>{{ touristPlace.description }}</p>
-          </div>
-        </div>
-      </div>
+      
     </div>
   </div>
 </div>
+
+
+<div class="tourist-places" *ngIf="touristPlaces.length > 0">
+  <h2>Top Attractions in {{ selectedCity }}</h2>
+  <div class="tourist-place" *ngFor="let touristPlace of touristPlaces" [ngClass]="{'selected': isSelected(touristPlace)}" (click)="toggleSelection(touristPlace)">
+    <img [src]="touristPlace.imageUrl" alt="{{ touristPlace.name }}" class="tourist-place-img">
+    <div class="tourist-place-content">
+      <h3>{{ touristPlace.name }}</h3>
+      <p>{{ touristPlace.description }}</p>
+    </div>
+  </div>
+  <div class="stay-duration">
+    <label for="days">Number of Days: </label>
+    <input type="number" id="days" [(ngModel)]="numberOfDays">
+    <button (click)="organizeSchedule()">Organize</button>
+  </div>
+</div>
+<div class="organized-schedule" *ngIf="organizedSchedule.length > 0">
+  <h2>Organized Schedule</h2>
+  <div *ngFor="let item of organizedSchedule">
+    <p>Day {{ item.day }} ({{ item.time }}): {{ item.place.name }}</p>
+  </div>
+</div>
+<button (click)="printPage()">Print</button>
