@@ -1,95 +1,312 @@
 body, html {
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
-    background: #f4f4f4;
-}
-
-.main-header {
-    background-color: #0071c2;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-}
-
-.header-content h1 {
-    margin: 0.5em 0;
-}
-
-.header-content p {
-    margin: 0.5em 0 1em;
-    font-size: 1.2em;
-}
-
-.header-buttons button {
-    padding: 10px 20px;
-    margin: 5px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.header-buttons button:hover {
-    background-color: #367c39;
+    font-family: 'Arial', sans-serif; /* Change as needed */
 }
 
 .navbar {
+
     display: flex;
-    justify-content: space-around;
-    padding: 10px 0;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.navbar a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: background 0.3s;
-}
-
-.navbar a.active, .navbar a:hover {
-    background-color: #045a87;
-}
-
-.search-container {
-    padding: 20px;
-    text-align: center;
-    background: #fff;
-    margin: 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.search-form input, .search-form select {
-    padding: 10px;
-    margin: 0 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.search-form button {
+    justify-content: space-between;
+    align-items: center;
     padding: 10px 20px;
-    background-color: #4CAF50;
+    height: 95px
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    padding: 10px 15px; /* Provides spacing around each link */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: rgb(7, 159, 83); /* Style color as per your brand theme */
+    font-weight: bold; /* Makes font bold */
+    transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+.nav-links a:hover {
+    color: #d4af37; /* Gold color on hover, change as per your preference */
+}
+
+.button {
+    padding: 10px 20px;
+    margin-left: 10px;
+    background-color: #4CAF50; /* Green background */
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background 0.3s;
 }
 
-.search-form button:hover {
+.button:hover {
     background-color: #367c39;
+}
+.banner {
+    background-image: url('https://images2.goabroad.com/image/upload/images2/program_content/oB4IN8qKYzUoqGnbA7MX7rGcWW57YesxAsFg1t8z.jpg'); /* Ensure the path is correct */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 500px; /* Adjust based on your design needs */
+    display: flex;
+    align-items: center; /* Centers the content vertically */
+    justify-content: center; /* Centers the content horizontally */
+}
+
+.overlay {
+    width: 100%; /* Cover the entire banner area */
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-content {
+    text-align: center;
+    color: white; /* Ensures text is visible */
+}
+
+.banner h1 {
+    font-size: 36px; /* Adjust size as needed */
+}
+
+.banner p {
+    font-size: 1.2rem; /* Smaller text for the paragraph */
+    margin-top: 0; /* Reduces space above the paragraph */
+    padding: 0 15%; /* Adds horizontal padding */
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.6); /* Text shadow for better readability */
+    line-height: 1.6; /* Improves line spacing */
 }
 
 footer {
-    text-align: center;
-    padding: 10px 0;
-    background-color: #0071c2;
-    color: white;
-    position: fixed;
-    bottom: 0;
+    background-color: #f5f5f5; /* Light gray background */
+    color: #333; /* Dark text for readability */
+    padding: 20px;
+    font-family: Arial, sans-serif; /* Optional: sets the font */
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.footer-column {
+    width: 25%; /* Adjust based on the number of columns */
+}
+
+.footer-column h4 {
+    font-size: 16px;
+    color: #444;
+}
+.container {
+    display: flex;
+}
+
+.sidebar {
+    width: 20%;
+    padding: 20px;
+    background: #f5f5f5; /* Light gray background */
+}
+
+.filter-group h3 {
+    margin-bottom: 10px;
+}
+
+.filter-group input[type="range"] {
     width: 100%;
+}
+
+.filter-group button {
+    background-color: #ffd700; /* Gold color */
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.promotion {
+    padding: 10px;
+    background-color: green;
+    color: white;
+    text-align: center;
+    border: 2px solid darkgreen;
+    margin-top: 20px;
+}
+
+.product-grid {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.product {
+    width: 50%; /* Adjust based on how many products per row */
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+}
+
+.sale-tag {
+    position: absolute;
+    background-color: red;
+    color: white;
+    padding: 5px;
+    top: 10px;
+    right: 10px;
+}
+
+.reviews, .price {
+    margin: 10px 0;
+}
+
+.old-price {
+    text-decoration: line-through;
+}
+.certifications img, .payment-methods img {
+    margin: 5px 10px; /* Space between logos */
+    height: 40px; /* Adjust based on actual size needed */
+}
+
+.certifications {
+    margin-bottom: 10px; /* Space between sections */
+}
+
+.payment-methods {
+    margin-top: 10px; /* Space between sections */
+}
+
+copyright {
+    color: #666; /* Grey text for copyright */
+    font-size: 14px;
+}
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column li a {
+    text-decoration: none;
+    color: #666;
+    display: block;
+    margin-bottom: 8px; /* Space between links */
+}
+
+.social-media-links img {
+    width: 32px; /* Icon size */
+    height: 32px;
+    margin-right: 10px; /* Space between icons */
+}
+
+.newsletter input {
+    padding: 8px;
+    margin-right: 5px;
+}
+
+.newsletter button {
+    padding: 8px 12px;
+    background-color: #d4af37; /* Stylish button color */
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Responsive adjustments may be necessary */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-column {
+        width: 100%; /* Full width on smaller screens */
+        margin-bottom: 20px;
+    }
+}
+
+payment-methods {
+    display: flex; /* Ensures the content is laid out in a row */
+    justify-content: center; /* Centers the content horizontally */
+    align-items: center; /* Centers the content vertically */
+    padding: 20px; /* Adds some space around the content */
+    background-color: #f5f5f5; /* Light gray background, adjust as needed */
+    border-top: 1px solid #ddd; /* Adds a subtle top border, optional */
+    margin-top: 20px; /* Adds space above the payment methods area */
+}
+
+.payment-methods img {
+    width: auto; /* Keeps image aspect ratio */
+    height: 90px; /* Adjust height as necessary */
+    max-width: 100%; /* Ensures image does not exceed its container */
+}
+
+.footer-lastrow {
+    display: flex;
+    align-items: center; /* Vertically centers all children */
+    justify-content: space-between; /* Spreads out the children across the full width */
+    padding: 10px 20px; /* Adds some padding around the elements */
+    background-color: #f4f4f4; /* Optional: background color for the footer */
+}
+
+
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.hero {
+    background-image: url('https://images2.goabroad.com/image/upload/images2/program_content/oB4IN8qKYzUoqGnbA7MX7rGcWW57YesxAsFg1t8z.jpg'); /* Ensure the path is correct */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.search-box {
+
+}
+
+.search-box h1 {
+    font-size: 2em;
+}
+
+.search-box p {
+    font-size: 1.2em;
+}
+
+.search-box input[type="text"] {
+    margin-top: 20px;
+    padding: 10px;
+    width: 300px;
+    border: none;
+    border-radius: 5px;
+}
+
+.search-box input[type="checkbox"] {
+    margin-top: 10px;
+}
+
+.search-box button {
+    margin-top: 10px;
+    background-color: #ffc107;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    color: black;
 }
