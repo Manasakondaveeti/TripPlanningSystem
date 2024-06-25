@@ -1,0 +1,6 @@
+<p>hotel</p>
+<div *ngFor="let hotel of hotels">
+    <p>{{ hotel.name }} - {{ hotel.price | currency }}</p>
+    <button (click)="selectHotel(hotel)">Select</button>
+  </div>
+  
