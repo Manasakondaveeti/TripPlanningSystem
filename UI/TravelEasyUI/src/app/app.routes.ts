@@ -5,10 +5,17 @@ import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AttractionsComponent } from './attractions/attractions.component';
 
+import { SearchflightComponent } from './searchflight/searchflight.component';
+
+
 //export const routes: Routes = [];
 export const routes: Routes = [
     { path: '',component: DashboardComponent },
+    
     { path: 'login', component: LoginComponent },
     { path: 'attraction', component: AttractionsComponent },
-    { path: 'register', component: RegisterComponent }
+    { path: 'register', component: RegisterComponent },
+    {path: 'search-flight', component: SearchflightComponent},
+    { path: '**', redirectTo: '', pathMatch: 'full' }
+    
   ];
