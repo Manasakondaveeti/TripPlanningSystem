@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -8,7 +8,8 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-attractions',
   standalone: true,
-  imports: [HttpClientModule , CommonModule , FormsModule],
+  imports: [
+  CommonModule , FormsModule],
   templateUrl: './attractions.component.html',
   styleUrl: './attractions.component.css'
 })

@@ -7,7 +7,9 @@ import { BrowserModule } from '@angular/platform-browser';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterModule , DashboardComponent , HttpClientModule],
+  imports: [CommonModule, RouterModule , DashboardComponent  , HttpClientModule
+
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

@@ -21,6 +21,7 @@
           <p>From {{ flight.origin }} to {{ flight.destination }}</p>
           <p>Departure: {{ flight.departureTime }}</p>
           <p>Price: {{ flight.price }}</p>
+          <button (click)="goToPayment(flight)" class="button">Book Now</button>
         </div>
       </li>
     </ul>

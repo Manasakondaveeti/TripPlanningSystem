@@ -1,26 +1,28 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Injectable } from '@angular/core';
 import { HttpClient, HttpClientModule, HttpParams } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
 import { FormsModule } from '@angular/forms';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-searchflight',
   standalone: true,
-  imports: [HttpClientModule, CommonModule , FormsModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    HttpClientModule
+  ],
   templateUrl: './searchflight.component.html',
-  styleUrls: ['./searchflight.component.css']  // Note the correct property name: styleUrls
+  styleUrls: ['./searchflight.component.css']
 })
-
-
-
 export class SearchflightComponent {
   origin: string = '';
   destination: string = '';
   flights: any[] = [];
   private apiUrl = 'http://localhost:8080/searchFlights';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   onFocus(): void {
     // Implement onFocus logic if needed
@@ -31,7 +33,6 @@ export class SearchflightComponent {
   }
 
   searchFlights(): void {
-
     console.log(this.origin);
     console.log(this.destination);
     let params = new HttpParams()
@@ -44,9 +45,12 @@ export class SearchflightComponent {
     });
   }
 
-  printPage(): void {
-    // Implement printPage logic if needed
-    window.print();
+  goToPayment(flight: any): void {
+    const navigationExtras: NavigationExtras = {
+      state: {
+        flight: flight
+      }
+    };
+    this.router.navigate(['/payment'], navigationExtras);
   }
-
 }

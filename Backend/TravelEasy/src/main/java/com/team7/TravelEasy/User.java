@@ -1,4 +1,4 @@
-package com.team7.Traveleasy;
+package com.team7.TravelEasy;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

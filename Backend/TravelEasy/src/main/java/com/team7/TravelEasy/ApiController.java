@@ -1,18 +1,20 @@
-package com.team7.Traveleasy;
+package com.team7.TravelEasy;
 
 
 
 
-        import org.springframework.beans.factory.annotation.Autowired;
-        import org.springframework.context.annotation.Bean;
-        import org.springframework.http.HttpStatus;
-        import org.springframework.http.ResponseEntity;
-        import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-        import org.springframework.security.crypto.password.PasswordEncoder;
-        import org.springframework.web.bind.annotation.*;
+import com.team7.TravelEasy.attractions.Place;
+import com.team7.TravelEasy.attractions.PlaceService;
+import com.team7.TravelEasy.attractions.TouristPlace;
+import org.springframework.beans.factory.annotation.Autowired;
 
-        import java.util.HashMap;
-        import java.util.Map;
+import org.springframework.http.ResponseEntity;
+
+import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 @RestController
@@ -21,26 +23,26 @@ package com.team7.Traveleasy;
 public class ApiController {
     @Autowired
     private UserRepository userRepository;
-
+    Map<String, String> response = new HashMap<>();
 
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@RequestBody User user) {
         System.out.println("manasa");
         user.setPassword(user.getPassword());
-        System.out.println("manasa1");
+        System.out.println(user.getPassword());
 
         userRepository.save(user);
-        System.out.println("manasa2");
+        System.out.println(user.getUsername());
         System.out.println("manasa3");
-
-        return ResponseEntity.ok("User registered successfully");
+        response.put("message", "User registered successfully");
+        return ResponseEntity.ok(response);
 
     }
 
     @PostMapping("/login")
     public ResponseEntity<?> loginUser(@RequestBody User login) {
         User user = userRepository.findByUsername(login.getUsername());
-        Map<String, String> response = new HashMap<>();
+
         if (user != null && login.getPassword().matches(user.getPassword())) {
 
             response.put("message", "User logged in successfully");
@@ -48,7 +50,19 @@ public class ApiController {
         }
         response.put("message", "Failed to login");
         return ResponseEntity.ok(response);
-        
+
+    }
+    @Autowired
+    private PlaceService placeService;
+    @GetMapping("/places")
+    public List<Place> getAllPlaces() {
+        return placeService.getAllPlaces();
+    }
+
+
+    @GetMapping("/places/tourist-places")
+    public List<TouristPlace> getTouristPlacesByCity(@RequestParam String city) {
+        return placeService.getTouristPlacesByCity(city);
     }
 
 
