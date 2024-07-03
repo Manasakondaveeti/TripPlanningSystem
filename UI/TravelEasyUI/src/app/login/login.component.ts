@@ -8,7 +8,7 @@ interface LoginResponse {
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule , HttpClientModule] ,
+  imports: [FormsModule] ,
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })

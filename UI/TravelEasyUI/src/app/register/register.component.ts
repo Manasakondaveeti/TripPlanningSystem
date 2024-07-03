@@ -1,4 +1,4 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
@@ -6,7 +6,7 @@ import { Router, RouterModule } from '@angular/router';
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [HttpClientModule, RouterModule , FormsModule],
+  imports: [ RouterModule , FormsModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })

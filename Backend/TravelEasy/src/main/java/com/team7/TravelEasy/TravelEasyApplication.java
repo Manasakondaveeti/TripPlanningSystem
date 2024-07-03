@@ -1,13 +1,13 @@
-package com.team7.Traveleasy;
+package com.team7.TravelEasy;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TraveleasyApplication {
+public class TravelEasyApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TraveleasyApplication.class, args);
+		SpringApplication.run(TravelEasyApplication.class, args);
 	}
 
 }

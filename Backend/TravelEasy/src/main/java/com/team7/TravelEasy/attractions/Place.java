@@ -1,4 +1,4 @@
-package com.team7.Traveleasy.attractions;
+package com.team7.TravelEasy.attractions;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,10 +15,6 @@ public class Place {
     private Long id;
     private String name;
     private String imageUrl;
-
-
-
-
 
     // Getters and Setters
     public Long getId() {
@@ -45,4 +41,3 @@ public class Place {
         this.imageUrl = imageUrl;
     }
 }
-
