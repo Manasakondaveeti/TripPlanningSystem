@@ -1,10 +1,10 @@
 <div class="container">
     <div class="register-form">
         <h2>Register Your Account</h2>
-        <form action="#" method="post">
-            <input type="text" name="username" placeholder="Username" required>
+        <form (submit)="register()">
+            <input type="text" name="username" [(ngModel)]="user.username" placeholder="Username" required>
             <input type="email" name="email" placeholder="Email" required>
-            <input type="password" name="password" placeholder="Password" required>
+            <input type="password" name="password"  [(ngModel)]="user.password" placeholder="Password" required>
             <input type="password" name="confirm_password" placeholder="Confirm Password" required>
             <input type="submit" value="Register">
         </form>

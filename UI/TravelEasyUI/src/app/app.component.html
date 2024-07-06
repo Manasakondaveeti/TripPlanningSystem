@@ -1,3 +1,80 @@
-
+<header>
+    
+    
+    <nav class="navbar">
+        <img src="assets/logo.PNG" alt="Site Logo" class="logo">
+        <ul class="nav-links">
+           <li><a routerLink="/search-flight">FLIGHT</a></li>
+           <li><a routerLink="/login">HOTEL</a></li>
+           <li><a routerLink="/attraction">ATTRACTIONS</a></li>
+           
+        </ul>
+        <div>
+            <button routerLink="/login" class="button">Sign In</button>
+    <button routerLink="/register" class="button">Register</button>
+        </div>
+     </nav>
+ 
+ </header>
+  
 <router-outlet></router-outlet>
+ <footer>
+    <div class="footer-container">
+       <div class="footer-column">
+          <h4>About TravelEasy</h4>
+          <ul>
+             <li><a href="#">Our Story</a></li>
+             <li><a href="#">The Team</a></li>
+             <li><a href="#">Our Mission</a></li>
+             <!-- More links -->
+          </ul>
+       </div>
+       <div class="footer-column">
+          <h4>Booking Categories</h4>
+          <ul>
+             <li><a href="/UI/TravelEasyUI/src/app/flight/search-flight.component.html">Flight</a></li>
+             <li><a href="#">Accommodation</a></li>
+             <li><a href="#">Rental Cars</a></li>
+             <!-- More links -->
+          </ul>
+       </div>
+       <div class="footer-column">
+          <h4>Customer Service</h4>
+          <ul>
+             <li><a href="#">Contact Us</a></li>
+             <li><a href="#">Gift Certificates</a></li>
+             <li><a href="#">Shipping Information</a></li>
+             <!-- More links -->
+          </ul>
+       </div>
+       <div class="footer-column">
+          <h4>Stay Connected</h4>
+          <div class="social-media-links">
+             <a href="#"><img src="assets/Facebook.png" alt="Facebook"></a>
+              <a href="#"><img src="assets/instagram.jpg" alt="instagram"></a>
+             <a href="#"><img src="assets/pinterest.png" alt="pinterest"></a>
+             <a href="#"><img src="assets/twitter.png" alt="twitter"></a>
+             <a href="#"><img src="assets/youtube.png" alt="youtube"></a>
+
+          </div>
+          <div class="newsletter">
+             <input type="email" placeholder="Email">
+             <button>Submit</button>
+          </div>
+       </div>
+    </div>
+    <div class="footer-lastrow">
+       <div class="certifications">
+
+          <img src="assets/privacy-guaranteed.jpg" alt="Privacy Guaranteed">
+
+          <!-- More logos as needed -->
+       </div>
+       <p class="copyright">© 2024 University of Windsor All Rights Reserved</p>
+       <div class="payment-methods">
+          <img src="assets/payment.jpg" alt="payment img">
+       </div>
+    </div>
+ </footer>
+
 
