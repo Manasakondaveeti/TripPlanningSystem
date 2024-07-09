@@ -45,7 +45,7 @@ public class PaymentController {
             response.put("message", "Payment failed");
             status = HttpStatus.INTERNAL_SERVER_ERROR;
         }
-        response.put("message", "Payment failed");
+
         return new ResponseEntity<>(response, status);
     }
 }

@@ -144,100 +144,58 @@ body {
   }
   
   .stay-duration {
+    display: flex;
+    align-items: center;
     margin-top: 20px;
-    text-align: left;
   }
   
-  .stay-duration input {
-    padding: 5px;
+  .stay-duration label {
+    font-size: 1em;
     margin-right: 10px;
   }
   
-  .stay-duration button {
-    padding: 5px 10px;
-    border: none;
-    background: #007bff;
-    color: #fff;
+  .days-input {
+    width: 60px;
+    padding: 5px;
+    margin-right: 20px;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
+    font-size: 1em;
   }
   
-  .stay-duration button:hover {
-    background: #0056b3;
+  .organize-button,
+  .print-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .organize-button:hover,
+  .print-button:hover {
+    background-color: #0056b3;
   }
   
   .organized-schedule {
-    margin-top: 20px;
-    background: #fff;
+    background: white;
+    border-radius: 10px;
     padding: 20px;
-    border-radius: 5px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 20px auto;
   }
   
   .organized-schedule h2 {
+    font-size: 1.8em;
     margin-bottom: 20px;
   }
   
   .organized-schedule p {
-    background: #f1f1f1;
-    padding: 10px;
-    border-radius: 5px;
-    margin: 5px 0;
-  }
-
-
-  /* Existing styles */
-
-  /* Existing styles */
-
-@media print {
-    body * {
-      visibility: hidden;
-    }
-  
-    .banner, .banner * {
-      visibility: visible;
-    }
-  
-    .banner {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-    }
-  
-    .dropdown, .stay-duration, .organized-schedule {
-      display: block;
-      width: 100%;
-    }
-  
-    .dropdown input, .stay-duration input {
-      width: auto;
-    }
-  
-    .dropdown-menu, .place-selection, .tourist-place-img, .tourist-place-content {
-      display: block;
-    }
-  
-    .dropdown-item img, .tourist-place img {
-      max-width: 100%;
-      height: auto;
-    }
-  
-    .tourist-place {
-      border: 1px solid #000;
-      margin-bottom: 10px;
-      page-break-inside: avoid;
-    }
-  
-    .stay-duration, .organized-schedule {
-      margin-top: 20px;
-      page-break-before: auto;
-    }
-  
-    button {
-      display: none;
-    }
+    font-size: 1.2em;
+    color: #333;
   }
   .tourist-places {
     margin-top: 20px;
