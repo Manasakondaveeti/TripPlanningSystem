@@ -1,0 +1,13 @@
+<div class="banner">
+<div class="payment-container" *ngIf="showStatus">
+    <div class="payment-status" [ngClass]="{ 'success': isSuccess, 'error': !isSuccess }">
+      <div class="status-header">
+        <span class="status-icon"></span>
+        <h2 class="status-title">{{ message }}</h2>
+        <span class="close-icon" (click)="closeStatus()">&times;</span>
+      </div>
+      <p class="status-message">{{ statusMessage }}</p>
+      <button class="status-button" (click)="onActionButtonClick()">{{ actionButtonText }}</button>
+    </div>
+  </div>
+</div>

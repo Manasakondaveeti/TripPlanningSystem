@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { NgxStripeModule } from 'ngx-stripe';
+ // Import the interface
 
 @Component({
   selector: 'app-payment',
@@ -15,7 +16,7 @@ import { NgxStripeModule } from 'ngx-stripe';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxStripeModule,
+    NgxStripeModule, // Ensure NgxStripeModule is imported here
     RouterModule
   ],
   templateUrl: './payment.component.html',
@@ -58,13 +59,23 @@ export class PaymentComponent implements AfterViewInit {
     if (this.card) {
       this.stripeService.createToken(this.card.element, { name: 'Name' }).subscribe((result) => {
         if (result.token) {
-          this.http.post('http://localhost:8080/api/payment/charge', { token: result.token.id, amount: this.flight.price }).subscribe(response => {
-            console.log('Payment successful', response);
+          this.http.post<PaymentResponse>('http://localhost:8080/api/payment/charge', { token: result.token.id, amount: this.flight.price }).subscribe(response => {
+            console.log(response);
+            const navigationExtras: NavigationExtras = {
+              state: {
+                message: response.message
+              }
+            };
+            this.router.navigate(['/payment-success'], navigationExtras);
           });
-        } else if (result.error) {
-          console.log(result.error.message);
+        } else {
+          console.error('Error creating token:', result.error.message);
         }
       });
     }
   }
+}
+
+export interface PaymentResponse {
+  message: string;
 }

@@ -1,35 +1,28 @@
 package com.team7.TravelEasy.Payment;
 
-
-
-import com.stripe.Stripe;
 import com.stripe.exception.StripeException;
 import com.stripe.model.Charge;
-import jakarta.annotation.PostConstruct;
-import org.springframework.beans.factory.annotation.Value;
+import com.stripe.param.ChargeCreateParams;
 import org.springframework.stereotype.Service;
-
-
-import java.util.HashMap;
-import java.util.Map;
 
 @Service
 public class PaymentService {
 
-    @Value("${stripe.secretKey}")
-    private String secretKey;
+    public String charge(String token, double amount) throws StripeException {
+        ChargeCreateParams params = ChargeCreateParams.builder()
+                .setAmount((long) (amount * 100)) // amount in cents
+                .setCurrency("cad")
+                .setDescription("Charge for payment")
+                .setSource(token)
+                .build();
 
-    @PostConstruct
-    public void init() {
-        Stripe.apiKey = secretKey;
-    }
+        Charge charge = Charge.create(params);
 
-    public Charge charge(String token, double amount) throws StripeException {
-        Map<String, Object> chargeParams = new HashMap<>();
-        chargeParams.put("amount", (int) (amount * 100)); // Amount in cents
-        chargeParams.put("currency", "usd");
-        chargeParams.put("description", "Flight booking payment");
-        chargeParams.put("source", token);
-        return Charge.create(chargeParams);
+        // Check the status of the charge
+        if ("succeeded".equals(charge.getStatus())) {
+            return "Payment done successfully";
+        } else {
+            return "Payment failed";
+        }
     }
 }

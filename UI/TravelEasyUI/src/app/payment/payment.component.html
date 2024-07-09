@@ -1,4 +1,5 @@
-<div class="payment-details">
+<div class="payment-details-container">
+  <div class="payment-details">
     <h2>Payment Details</h2>
     <div *ngIf="flight">
       <p>Airline: {{ flight.airline }}</p>
@@ -10,4 +11,4 @@
       <button (click)="confirmPayment()" class="button">Confirm Payment</button>
     </div>
   </div>
-  
+</div>
