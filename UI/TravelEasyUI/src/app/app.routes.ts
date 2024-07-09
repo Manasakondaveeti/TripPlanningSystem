@@ -7,12 +7,13 @@ import { AttractionsComponent } from './attractions/attractions.component';
 
 import { SearchflightComponent } from './searchflight/searchflight.component';
 import { PaymentComponent } from './payment/payment.component';
+import { PaymentSuccessComponent } from './payment-success/payment-success.component';
 
 
 //export const routes: Routes = [];
 export const routes: Routes = [
     { path: '',component: DashboardComponent },
-    
+    { path: 'payment-success', component: PaymentSuccessComponent },
     { path: 'login', component: LoginComponent },
     { path: 'attraction', component: AttractionsComponent },
     { path: 'register', component: RegisterComponent },
