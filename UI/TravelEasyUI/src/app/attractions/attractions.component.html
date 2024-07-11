@@ -27,10 +27,12 @@
       <p>{{ touristPlace.description }}</p>
     </div>
   </div>
+
+
   <div class="stay-duration">
     <label for="days">Number of Days: </label>
-    <input type="number" id="days" [(ngModel)]="numberOfDays">
-    <button (click)="organizeSchedule()">Organize</button>
+    <input type="number" id="days" [(ngModel)]="numberOfDays" class="days-input">
+    <button (click)="organizeSchedule()" class="organize-button">Organize</button>
   </div>
 </div>
 <div class="organized-schedule" *ngIf="organizedSchedule.length > 0">
@@ -39,4 +41,4 @@
     <p>Day {{ item.day }} ({{ item.time }}): {{ item.place.name }}</p>
   </div>
 </div>
-<button (click)="printPage()">Print</button>
+<button (click)="printPage()" class="print-button">Print</button>

@@ -1,7 +1,7 @@
-package com.team7.Traveleasy;
+package com.team7.TravelEasy;
 
-        import org.springframework.beans.factory.annotation.Autowired;
-        import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {

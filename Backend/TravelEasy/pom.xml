@@ -41,6 +41,12 @@
 			<artifactId>spring-security-crypto</artifactId>
 			<version>5.8.1</version> <!-- Make sure to check for the latest version -->
 		</dependency>
+		<dependency>
+			<groupId>com.stripe</groupId>
+			<artifactId>stripe-java</artifactId>
+			<version>20.94.0</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

@@ -1,0 +1,14 @@
+<div class="payment-details-container">
+  <div class="payment-details">
+    <h2>Payment Details</h2>
+    <div *ngIf="flight">
+      <p>Airline: {{ flight.airline }}</p>
+      <p>From: {{ flight.origin }}</p>
+      <p>To: {{ flight.destination }}</p>
+      <p>Departure: {{ flight.departureTime }}</p>
+      <p>Price: {{ flight.price }}</p>
+      <ngx-stripe-card [options]="cardOptions" [elementsOptions]="elementsOptions"></ngx-stripe-card>
+      <button (click)="confirmPayment()" class="button">Confirm Payment</button>
+    </div>
+  </div>
+</div>
