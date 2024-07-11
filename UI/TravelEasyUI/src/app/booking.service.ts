@@ -4,24 +4,26 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class BookingService {
-  private selectedDate: Date | null = null;
-  private budget: number | null = null;
+  getSelectedDateAsString(): string | null {
+    throw new Error('Method not implemented.');
+  }
+  private selectedDate: string = "";
+  private budget!: number;
   private selectedHotel: any = null;
 
   setSelectedDate(date: Date) {
-    this.selectedDate = date;
+    this.selectedDate = date.toISOString().split('T')[0];;
   }
 
-  getSelectedDate(): Date | null {
+  getSelectedDate(): string {
     return this.selectedDate;
   }
-
   setBudget(budget: number) {
     this.budget = budget;
   }
 
-  getBudget(): number | null {
-    return this.budget;
+  getBudget(): number {
+   return this.budget;
   }
 
   setSelectedHotel(hotel: any) {

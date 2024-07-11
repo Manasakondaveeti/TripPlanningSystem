@@ -1,31 +1,26 @@
 <div class="banner">
-    <div class="overlay">
-      <div class="text-content">
-        <h1>Available Hotels</h1>
-        <p>Select from a range of available hotels based on your preferred dates and budget. Whether you’re looking for luxury or affordability, we have options that cater to your needs. Find the perfect place to stay and enjoy a comfortable experience.</p>
-        <div class="dropdown">
-          <input type="date" placeholder="Select date" [(ngModel)]="selectedDate">
-          <input type="number" placeholder="Enter budget" [(ngModel)]="budget" (blur)="filterHotels()">
-        </div>
+  <div class="overlay">
+    <div class="text-content">
+      <h1>Available Hotels</h1>
+      <p>Select from a range of available hotels based on your preferred dates and budget. Whether you’re looking for luxury or affordability, we have options that cater to your needs. Find the perfect place to stay and enjoy a comfortable experience.</p>
+      <div class="dropdown">
+        <input type="date" placeholder="Select date" [(ngModel)]="selectedDate">
+        <input type="number" placeholder="Enter budget" [(ngModel)]="budget" (blur)="filterHotels()">
+        <button (click)="searchHotels()" class="button">Search</button>
       </div>
     </div>
   </div>
-  
-  <div class="hotel-list" *ngIf="hotels.length > 0">
-    <h2>Hotels Available on {{ selectedDate }}</h2>
-    <div class="hotel-item" *ngFor="let hotel of hotels" (click)="selectHotel(hotel)">
-      <img [src]="hotel.imageUrl" alt="{{ hotel.name }}" class="hotel-img">
-      <div class="hotel-content">
-        <h3>{{ hotel.name }}</h3>
-        <p>{{ hotel.description }}</p>
-        <p>Price: {{ hotel.price  }}</p>
-      </div>
+</div>
+
+<div class="hotel-list" *ngIf="hotels.length > 0">
+  <h2>Hotels Available on {{ selectedDate }}</h2>
+  <div class="hotel-item" *ngFor="let hotel of hotels" (click)="selectHotel(hotel)">
+    <img [src]="hotel.imageUrl" alt="{{ hotel.name }}" class="hotel-img">
+    <div class="hotel-content">
+      <h3>{{ hotel.name }}</h3>
+      <p>{{ hotel.description }}</p>
+      <p>Price: {{ hotel.price }}</p>
+      <button (click)="goToPayment(hotel)" class="button">Book Now</button>
     </div>
   </div>
-  
-  <div *ngIf="selectedHotel">
-    <h2>Selected Hotel: {{ selectedHotel.name }}</h2>
-    <p>Price: {{ selectedHotel.price  }}</p>
-    <button (click)="proceedToPayment()">Proceed to Payment</button>
-  </div>
-  
+</div>
