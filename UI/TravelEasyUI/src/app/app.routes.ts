@@ -4,8 +4,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AttractionsComponent } from './attractions/attractions.component';
-import { HotelsComponent } from './hotel-list/hotel-list.component';
-import { StayButtonComponent } from './stay-button/stay-button.component';
+import { HotelListComponent } from './hotel-list/hotel-list.component';
+
 
 import { SearchflightComponent } from './searchflight/searchflight.component';
 import { PaymentComponent } from './payment/payment.component';
@@ -19,8 +19,7 @@ export const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'attraction', component: AttractionsComponent },
     { path: 'register', component: RegisterComponent },
-    { path: 'hotel-list', component: HotelsComponent },
-    { path: 'stay-button', component: StayButtonComponent },
+    { path: 'hotel-list', component: HotelListComponent },
     { path: 'register', component: RegisterComponent },
     {path: 'search-flight', component: SearchflightComponent},
     {path: 'payment', component: PaymentComponent},

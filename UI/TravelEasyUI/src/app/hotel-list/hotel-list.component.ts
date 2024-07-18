@@ -1,62 +1,77 @@
+// hotel-list.component.ts
+
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpClientModule, HttpParams } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-hotels',
+  selector: 'app-hotel-list',  // Corrected selector
   standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    HttpClientModule
-  ],
+  imports: [CommonModule, HttpClientModule, FormsModule],  // Include FormsModule in imports
   templateUrl: './hotel-list.component.html',
   styleUrls: ['./hotel-list.component.css']
+  
 })
-export class HotelsComponent {
-  bookingService: any;
-filterHotels() {
-throw new Error('Method not implemented.');
-}
-  selectedDate: string = '';
-  budget: number = 0;
+export class HotelListComponent implements OnInit {
+  location: string = '';
+  date: string = '';
+  budget: number | null = null;
   hotels: any[] = [];
-  selectedHotel: any | undefined;
+  selectedDate: string = '';
+  showPopup: boolean = false;
   private apiUrl = 'http://localhost:8080/searchHotels';
+  bookingService: any;
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient) {}
+
   ngOnInit(): void {
-    this.selectedDate = this.bookingService.getSelectedDateAsString() ?? ''; // Ensure to handle null or undefined return values
-    this.budget = this.bookingService.getBudget(); // Assign budget, handle null case
-    this.filterHotels(); // Fetch hotels based on selectedDate and budget
-  }
-  searchHotels(): void {
-    if (this.selectedDate && this.budget !== null) {
-      let params = new HttpParams()
-        .set('date', this.selectedDate)
-        .set('budget', this.budget.toString());
+    
 
-      this.http.get<any[]>(this.apiUrl, { params }).subscribe(data => {
-        this.hotels = data;
-      });
-    } else {
-      this.hotels = [];
-    }
+  }
+
+  onFocus(): void {
+    // Implement onFocus logic if needed
+  }
+
+  onBlur(): void {
+    // Implement onBlur logic if needed
+  }
+
+  searchHotels(): void {
+    console.log(this.location);
+    console.log(this.date);
+    console.log(this.budget);
+
+    let params = new HttpParams()
+      .set('location', this.location)
+      .set('date', this.date)
+      .set('budget', this.budget ? this.budget.toString() : '');
+
+    this.http.get<any[]>(this.apiUrl, { params }).subscribe(data => {
+      this.hotels = data;
+      console.log(this.hotels.length);
+    });
+  }
+
+  filterHotels(): void {
+    // Implement filter logic
   }
 
   selectHotel(hotel: any): void {
-    this.selectedHotel = hotel;
+    // Implement select logic
   }
 
   goToPayment(hotel: any): void {
-    const navigationExtras: NavigationExtras = {
-      state: {
-        hotel: hotel
-      }
-    };
-    this.router.navigate(['/payment'], navigationExtras);
+    // Implement payment logic
+  }
+
+  addToCart(hotel: any): void {
+    // Implement add to cart logic
+  }
+
+  printPage(): void {
+    window.print();
   }
 }
+

@@ -1,26 +1,33 @@
+<!-- hotel-list.component.html -->
 <div class="banner">
   <div class="overlay">
     <div class="text-content">
-      <h1>Available Hotels</h1>
-      <p>Select from a range of available hotels based on your preferred dates and budget. Whether you’re looking for luxury or affordability, we have options that cater to your needs. Find the perfect place to stay and enjoy a comfortable experience.</p>
+      <h1>Search Hotels</h1>
+      <p>Welcome to our hotel search. Find the best hotels tailored to your needs and preferences.</p>
       <div class="dropdown">
-        <input type="date" placeholder="Select date" [(ngModel)]="selectedDate">
-        <input type="number" placeholder="Enter budget" [(ngModel)]="budget" (blur)="filterHotels()">
-        <button (click)="searchHotels()" class="button">Search</button>
+        <input type="text" placeholder="Enter location" [(ngModel)]="location" (focus)="onFocus()" (blur)="onBlur()" #locationInput>
+        <input type="date" placeholder="Select date" [(ngModel)]="date" (focus)="onFocus()" (blur)="onBlur()" #dateInput>
+        <input type="number" placeholder="Enter budget" [(ngModel)]="budget" (focus)="onFocus()" (blur)="onBlur()" #budgetInput>
       </div>
+      <button (click)="searchHotels()" class="button">Search</button>
     </div>
   </div>
 </div>
 
-<div class="hotel-list" *ngIf="hotels.length > 0">
-  <h2>Hotels Available on {{ selectedDate }}</h2>
-  <div class="hotel-item" *ngFor="let hotel of hotels" (click)="selectHotel(hotel)">
-    <img [src]="hotel.imageUrl" alt="{{ hotel.name }}" class="hotel-img">
-    <div class="hotel-content">
-      <h3>{{ hotel.name }}</h3>
-      <p>{{ hotel.description }}</p>
-      <p>Price: {{ hotel.price }}</p>
+<div class="hotel-results" *ngIf="hotels.length > 0">
+  <h2>Hotel Results</h2>
+  <ul>
+    <li *ngFor="let hotel of hotels" class="hotel-item">
+      <div class="hotel-details">
+        <h3>{{ hotel.name }}</h3>
+        <p>{{ hotel.description }}</p>
+        <p>Location: {{ hotel.location }}</p>
+        
+        <p>Budget: {{ hotel.budget }}</p> <!-- Assuming budget is a number, you can format it as currency -->
+      </div>
+      <button (click)="selectHotel(hotel)" class="button">View Details</button>
+      <button (click)="addToCart(hotel)" class="button">Add to Cart</button>
       <button (click)="goToPayment(hotel)" class="button">Book Now</button>
-    </div>
-  </div>
+    </li>
+  </ul>
 </div>

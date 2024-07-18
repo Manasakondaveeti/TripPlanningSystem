@@ -47,7 +47,7 @@ body, html {
     background-color: #367c39;
 }
 .banner {
-    background-image: url('https://images2.goabroad.com/image/upload/images2/program_content/oB4IN8qKYzUoqGnbA7MX7rGcWW57YesxAsFg1t8z.jpg'); /* Ensure the path is correct */
+    background-image: url('/assets/banner.jpg'); /* Ensure the path is correct */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
