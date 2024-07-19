@@ -22,6 +22,7 @@ public class Flight {
     private LocalDateTime departureTime;
     private BigDecimal price;
 
+
     // Getters and Setters
 
     public Long getId() {

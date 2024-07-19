@@ -32,6 +32,7 @@ export class SearchflightComponent {
     // Implement onBlur logic if needed
   }
 
+  
   searchFlights(): void {
     console.log(this.origin);
     console.log(this.destination);

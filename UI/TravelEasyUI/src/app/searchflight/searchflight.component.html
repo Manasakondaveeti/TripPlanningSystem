@@ -1,28 +1,28 @@
 <div class="banner">
-    <div class="overlay">
-      <div class="text-content">
-        <h1>Search Flights</h1>
-        <p>Welcome to our flight search. Find the best flights tailored to your needs and preferences.</p>
-        <div class="dropdown">
-          <input type="text" placeholder="Enter origin" [(ngModel)]="origin" (focus)="onFocus()" (blur)="onBlur()" #originInput>
-          <input type="text" placeholder="Enter destination" [(ngModel)]="destination" (focus)="onFocus()" (blur)="onBlur()" #destinationInput>
-        </div>
-        <button (click)="searchFlights()" class="button">Search</button>
+  <div class="overlay">
+    <div class="text-content">
+      <h1>Search Flights</h1>
+      <p>Welcome to our flight search. Find the best flights tailored to your needs and preferences.</p>
+      <div class="dropdown">
+        <input type="text" placeholder="Enter origin" [(ngModel)]="origin" (focus)="onFocus()" (blur)="onBlur()" #originInput>
+        <input type="text" placeholder="Enter destination" [(ngModel)]="destination" (focus)="onFocus()" (blur)="onBlur()" #destinationInput>
       </div>
+      <button (click)="searchFlights()" class="button">Search</button>
     </div>
   </div>
-  
-  <div class="flight-results" *ngIf="flights.length > 0">
-    <h2>Flight Results</h2>
-    <ul>
-      <li *ngFor="let flight of flights" class="flight-item">
-        <div class="flight-details">
-          <h3>{{ flight.airline }}</h3>
-          <p>From {{ flight.origin }} to {{ flight.destination }}</p>
-          <p>Departure: {{ flight.departureTime }}</p>
-          <p>Price: {{ flight.price }}</p>
-          <button (click)="goToPayment(flight)" class="button">Book Now</button>
-        </div>
-      </li>
-    </ul>
-  </div>
+</div>
+
+<div class="flight-results" *ngIf="flights.length > 0">
+  <h2>Flight Results</h2>
+  <ul>
+    <li *ngFor="let flight of flights" class="flight-item">
+      <div class="flight-details">
+        <h3>{{ flight.airline }}</h3>
+        <p>From {{ flight.origin }} to {{ flight.destination }}</p>
+        <p>Departure: {{ flight.departureTime }}</p>
+        <p>Price: {{ flight.price }}</p>
+        <button (click)="goToPayment(flight)" class="button">Book Now</button>
+      </div>
+    </li>
+  </ul>
+</div>
