@@ -74,4 +74,3 @@ export class HotelListComponent implements OnInit {
     window.print();
   }
 }
-
