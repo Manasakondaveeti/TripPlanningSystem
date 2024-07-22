@@ -1,0 +1,62 @@
+.banner {
+    background-image: url('../../assets/ourstory.jpeg'); /* Ensure the path is correct */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 500px; /* Adjust based on your design needs */
+    display: flex;
+    align-items: center; /* Centers the content vertically */
+    justify-content: center; /* Centers the content horizontally */
+}
+
+.overlay {
+    width: 100%; /* Cover the entire banner area */
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-content {
+    text-align: center;
+    color: white; /* Ensures text is visible */
+}
+
+.text-content h1 {
+    font-size: 36px; /* Adjust size as needed */
+}
+
+.text-content p {
+    font-size: 1.2rem; /* Smaller text for the paragraph */
+    margin-top: 0; /* Reduces space above the paragraph */
+    padding: 0 15%; /* Adds horizontal padding */
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.6); /* Text shadow for better readability */
+    line-height: 1.6; /* Improves line spacing */
+}
+
+.story-content {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.story-content h2 {
+    color: #4CAF50; /* Match the theme color from the banner */
+}
+
+.story-content p {
+    margin-bottom: 20px;
+}
+
+.footer {
+    background-color: #f5f5f5;
+    color: #333;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
