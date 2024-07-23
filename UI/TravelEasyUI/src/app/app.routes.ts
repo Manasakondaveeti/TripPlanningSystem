@@ -11,7 +11,9 @@ import { SearchflightComponent } from './searchflight/searchflight.component';
 import { PaymentComponent } from './payment/payment.component';
 import { PaymentSuccessComponent } from './payment-success/payment-success.component';
 import { OurStoryComponent } from './our-story/our-story.component';
+import { TheTeamComponent } from './the-team/the-team.component';
 import { OurMissionComponent } from './our-mission/our-mission.component';
+
 
 
 //export const routes: Routes = [];
@@ -26,6 +28,7 @@ export const routes: Routes = [
     {path: 'search-flight', component: SearchflightComponent},
     {path: 'payment', component: PaymentComponent},
     {path: 'our-story', component: OurStoryComponent},
+    {path: 'the-team', component: TheTeamComponent},
     {path: 'our-mission', component: OurMissionComponent},
     { path: '**', redirectTo: '', pathMatch: 'full' }
     
