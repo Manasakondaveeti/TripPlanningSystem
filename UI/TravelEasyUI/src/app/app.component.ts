@@ -1,23 +1,35 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-
+import { RouterModule, RouterOutlet , Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
-import { HotelListComponent } from './hotel-list/hotel-list.component'; // Correct import
-
+import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterModule, DashboardComponent, HotelListComponent],
-  
+  imports: [CommonModule, RouterModule , DashboardComponent  , FormsModule
 
-
+],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'traveleasyUI';
+  constructor(private router: Router) {}
+
+  isLoggedIn(): boolean {
+    if (typeof window !== 'undefined') {
+      return !!localStorage.getItem('token');
+  }
+  return false;
 }
 
+logout(): void {
+  if (typeof window !== 'undefined') {
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']);
+}
 
+}
+}
