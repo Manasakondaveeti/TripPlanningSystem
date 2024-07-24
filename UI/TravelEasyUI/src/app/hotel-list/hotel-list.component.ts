@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpClientModule, HttpParams } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-hotel-list',  // Corrected selector
@@ -23,7 +24,7 @@ export class HotelListComponent implements OnInit {
   private apiUrl = 'http://localhost:8080/searchHotels';
   bookingService: any;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
     
@@ -63,13 +64,17 @@ export class HotelListComponent implements OnInit {
   }
 
   goToPayment(hotel: any): void {
-    // Implement payment logic
+    hotel.price=hotel.budget;
+    
+    const navigationExtras: NavigationExtras = {
+      state: {
+        item: { ...hotel, type: 'hotel' }
+      }
+    };
+    this.router.navigate(['/payment'], navigationExtras);
   }
 
-  addToCart(hotel: any): void {
-    // Implement add to cart logic
-  }
-
+  
   printPage(): void {
     window.print();
   }
