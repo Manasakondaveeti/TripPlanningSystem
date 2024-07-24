@@ -46,8 +46,10 @@ public class ApiController {
         if (user != null && login.getPassword().matches(user.getPassword())) {
 
             response.put("message", "User logged in successfully");
+            response.put("token", "success");
             return ResponseEntity.ok(response);
         }
+        response.put("token", "error");
         response.put("message", "Failed to login");
         return ResponseEntity.ok(response);
 

@@ -1,3 +1,6 @@
+
+
+
 import { Component, OnInit, ViewChild, ElementRef, Injectable } from '@angular/core';
 import { HttpClient, HttpClientModule, HttpParams } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
@@ -19,6 +22,8 @@ import { NavigationExtras, Router } from '@angular/router';
 export class SearchflightComponent {
   origin: string = '';
   destination: string = '';
+  date: string = '';
+  price: number = 0;
   flights: any[] = [];
   private apiUrl = 'http://localhost:8080/searchFlights';
 
@@ -32,13 +37,14 @@ export class SearchflightComponent {
     // Implement onBlur logic if needed
   }
 
-  
   searchFlights(): void {
     console.log(this.origin);
     console.log(this.destination);
     let params = new HttpParams()
       .set('origin', this.origin)
-      .set('destination', this.destination);
+      .set('destination', this.destination)
+      .set('date', this.date)
+      .set('budget', this.price)
 
     this.http.get<any[]>(this.apiUrl, { params }).subscribe(data => {
       this.flights = data;
@@ -49,7 +55,7 @@ export class SearchflightComponent {
   goToPayment(flight: any): void {
     const navigationExtras: NavigationExtras = {
       state: {
-        flight: flight
+        item: { ...flight, type: 'flight' }
       }
     };
     this.router.navigate(['/payment'], navigationExtras);

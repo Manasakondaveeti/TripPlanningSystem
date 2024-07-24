@@ -10,6 +10,7 @@
           <li><a href="/search-flight">FLIGHT</a></li>
           <li><a routerLink="/hotel-list">HOTEL</a></li>
           <li><a routerLink="/attraction">ATTRACTIONS</a></li>
+          <li><a routerLink="/car-rental">CAR RENTAL</a></li>
           
        </ul>
        <div *ngIf="!isLoggedIn()">
@@ -30,9 +31,9 @@
       <div class="footer-column">
          <h4>About TravelEasy</h4>
          <ul>
-            <li><a href="#">Our Story</a></li>
-            <li><a href="#">The Team</a></li>
-            <li><a href="#">Our Mission</a></li>
+            <li><a routerLink="/our-story">Our Story</a></li>
+            <li><a routerLink="/the-team">The Team</a></li>
+            <li><a routerLink="/our-mission">Our Mission</a></li>
             <!-- More links -->
          </ul>
       </div>

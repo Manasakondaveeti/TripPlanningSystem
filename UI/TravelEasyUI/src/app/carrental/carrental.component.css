@@ -1,0 +1,127 @@
+/* Styles for the banner section */
+.banner {
+    position: relative;
+    height: 400px; /* Adjust height as needed */
+    background-image: url('../../assets/carrental.png'); /* Path to your image in the assets folder */
+    background-size: cover;
+    background-position: center;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-content {
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+}
+
+.text-content h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.text-content p {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+.dropdown {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.dropdown input {
+    padding: 10px;
+    margin: 0 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    width: 200px;
+}
+
+/* Styles for the car rental list section */
+.car-rental-list {
+    padding: 20px;
+}
+
+.car-rental-list h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.car-rental-item {
+    display: flex;
+    margin-bottom: 20px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.car-rental-item:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.car-img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.car-content {
+    padding: 15px;
+}
+
+.car-content h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.car-content p {
+    font-size: 1.1em;
+    line-height: 1.4;
+}
+
+.car-content p:last-child {
+    margin-top: 10px;
+}
+
+/* Styles for the selected car rental section */
+.selected-car {
+    margin-top: 20px;
+}
+
+.selected-car h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.selected-car p {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.selected-car button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #007bff; /* Adjust button color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.selected-car button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}

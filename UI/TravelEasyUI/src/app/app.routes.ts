@@ -13,6 +13,7 @@ import { PaymentSuccessComponent } from './payment-success/payment-success.compo
 import { OurStoryComponent } from './our-story/our-story.component';
 import { TheTeamComponent } from './the-team/the-team.component';
 import { OurMissionComponent } from './our-mission/our-mission.component';
+import { CarRentalListComponent } from './carrental/carrental.component';
 
 
 
@@ -30,6 +31,10 @@ export const routes: Routes = [
     {path: 'our-story', component: OurStoryComponent},
     {path: 'the-team', component: TheTeamComponent},
     {path: 'our-mission', component: OurMissionComponent},
-    { path: '**', redirectTo: '', pathMatch: 'full' }
+    {path: 'car-rental', component: CarRentalListComponent},
+    { path: '**', redirectTo: '', pathMatch: 'full' },
+    {path: 'our-story', component: OurStoryComponent},
+    {path: 'the-team', component: TheTeamComponent},
+    {path: 'our-mission', component: OurMissionComponent},
     
   ];

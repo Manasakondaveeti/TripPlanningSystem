@@ -7,7 +7,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { NgxStripeModule } from 'ngx-stripe';
- // Import the interface
 
 @Component({
   selector: 'app-payment',
@@ -25,7 +24,7 @@ import { NgxStripeModule } from 'ngx-stripe';
 })
 export class PaymentComponent implements AfterViewInit {
   @ViewChild(StripeCardComponent) card!: StripeCardComponent;
-  flight: any;
+  item: any;
   cardOptions: StripeCardElementOptions = {
     style: {
       base: {
@@ -48,7 +47,7 @@ export class PaymentComponent implements AfterViewInit {
 
   constructor(private stripeService: StripeService, private http: HttpClient, private router: Router) {
     const navigation = this.router.getCurrentNavigation();
-    this.flight = navigation?.extras?.state?.['flight'];
+    this.item = navigation?.extras?.state?.['item'];
   }
 
   ngAfterViewInit() {
@@ -59,7 +58,7 @@ export class PaymentComponent implements AfterViewInit {
     if (this.card) {
       this.stripeService.createToken(this.card.element, { name: 'Name' }).subscribe((result) => {
         if (result.token) {
-          this.http.post<PaymentResponse>('http://localhost:8080/api/payment/charge', { token: result.token.id, amount: this.flight.price }).subscribe(response => {
+          this.http.post<PaymentResponse>('http://localhost:8080/api/payment/charge', { token: result.token.id, amount: this.item.price }).subscribe(response => {
             console.log(response);
             const navigationExtras: NavigationExtras = {
               state: {

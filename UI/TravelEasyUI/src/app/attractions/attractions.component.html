@@ -40,5 +40,6 @@
   <div *ngFor="let item of organizedSchedule">
     <p>Day {{ item.day }} ({{ item.time }}): {{ item.place.name }}</p>
   </div>
+  <button (click)="printPage()" class="print-button">Print</button>
 </div>
-<button (click)="printPage()" class="print-button">Print</button>
+

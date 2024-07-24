@@ -6,6 +6,8 @@
       <div class="dropdown">
         <input type="text" placeholder="Enter origin" [(ngModel)]="origin" (focus)="onFocus()" (blur)="onBlur()" #originInput>
         <input type="text" placeholder="Enter destination" [(ngModel)]="destination" (focus)="onFocus()" (blur)="onBlur()" #destinationInput>
+        <input type="date" [(ngModel)]="date" placeholder="Enter date">
+      <input type="number" [(ngModel)]="price" placeholder="Enter budget">
       </div>
       <button (click)="searchFlights()" class="button">Search</button>
     </div>
