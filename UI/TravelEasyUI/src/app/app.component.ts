@@ -32,4 +32,9 @@ logout(): void {
 }
 
 }
+
+navigateToOrders(): void {
+  console.log('Navigating to orders');
+  this.router.navigate(['/orders']);
+}
 }

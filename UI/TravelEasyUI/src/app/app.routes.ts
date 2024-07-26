@@ -14,11 +14,13 @@ import { OurStoryComponent } from './our-story/our-story.component';
 import { TheTeamComponent } from './the-team/the-team.component';
 import { OurMissionComponent } from './our-mission/our-mission.component';
 import { CarRentalListComponent } from './carrental/carrental.component';
+import { OrdersComponent } from './orders/orders.component';
 
 
 
 //export const routes: Routes = [];
 export const routes: Routes = [
+    {path: 'orders', component: OrdersComponent},
     { path: '',component: DashboardComponent },
     { path: 'payment-success', component: PaymentSuccessComponent },
     { path: 'login', component: LoginComponent },
