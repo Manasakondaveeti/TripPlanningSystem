@@ -31,6 +31,7 @@ export class LoginComponent {
 
           console.log("success");
           localStorage.setItem('token', response.token);
+          localStorage.setItem('username', user.username);   
           this.router.navigate(['/dashboard']);
       } else {
           this.loginError = true;

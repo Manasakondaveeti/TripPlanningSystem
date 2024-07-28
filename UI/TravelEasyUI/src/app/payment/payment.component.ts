@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { NgxStripeModule } from 'ngx-stripe';
+import { error } from 'node:console';
 
 @Component({
   selector: 'app-payment',
@@ -55,6 +56,24 @@ export class PaymentComponent implements AfterViewInit {
   }
 
   confirmPayment() {
+
+    const departureTime = new Date(this.item.departureTime);
+    const formattedDepartureTime = `${departureTime.getFullYear()}-${String(departureTime.getMonth() + 1).padStart(2, '0')}-${String(departureTime.getDate()).padStart(2, '0')} ${String(departureTime.getHours()).padStart(2, '0')}:${String(departureTime.getMinutes()).padStart(2, '0')}:${String(departureTime.getSeconds()).padStart(2, '0')}`;
+
+    const flightOrder = {
+      username: localStorage.getItem('username'),
+      airline: this.item.airline,
+      origin: this.item.origin,
+      destination: this.item.destination,
+      departureTime: formattedDepartureTime,
+      price: this.item.price
+   };
+   console.log(flightOrder);
+   this.http.post('http://localhost:8080/api/flight-orders', flightOrder).subscribe(orderResponse => {
+    console.log('Flight Order Response:', orderResponse);
+   }, error => {
+    console.error('Error creating flight oredr:', error);
+   });
     if (this.card) {
       this.stripeService.createToken(this.card.element, { name: 'Name' }).subscribe((result) => {
         if (result.token) {
