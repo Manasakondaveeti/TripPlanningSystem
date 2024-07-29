@@ -6,6 +6,9 @@
 package com.team7.TravelEasy.flightorders;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,11 +24,23 @@ public class FlightOrderController {
 
     @Autowired
     private FlightOrderService flightOrderService;
+    
+    @Autowired
+    private FlightOrderRepository flightOrderRepository;
 
     @PostMapping("/flight-orders")
     public FlightOrder createFlightOrder(@RequestBody FlightOrder flightOrder) {
          // Log request data
         //System.out.println("username: " + flightOrder.getUsername() + "airline:" + flightOrder.getAirline() + flightOrder.getOrigin() + flightOrder.getDestination() + flightOrder.getDepartureTime() + flightOrder.getPrice());
         return flightOrderService.saveFlightOrder(flightOrder);
+    }
+    
+    @GetMapping("/flight-orders/{username}")
+    public ResponseEntity<FlightOrder> getFlightOrderByUsername(@PathVariable String username) {
+        FlightOrder flightOrder = flightOrderRepository.findByUsername(username);
+        if (flightOrder == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(flightOrder);
     }
 }
