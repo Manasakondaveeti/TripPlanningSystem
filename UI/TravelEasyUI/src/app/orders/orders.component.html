@@ -1,8 +1,21 @@
-<!-- orders.component.html -->
-<div class="orders-container">
-    <div class="orders-title">Orders Page</div>
-    <div class="orders-content">
-      Welcome to the Orders page! Yow will see your orders here soon...
-    </div>
-  </div>
-  
+<div *ngIf="flightOrders.length > 0; else noOrders">
+  <h2>Hi, {{this.username}}</h2>
+  <h3>Your flight bookings:</h3>
+  <ul>
+    <li *ngFor="let order of flightOrders">
+      <p>Airline: {{ order.airline }}</p>
+      <p>Origin: {{ order.origin }}</p>
+      <p>Destination: {{ order.destination }}</p>
+      <p>Departure Time: {{ order.departureTime }}</p>
+      <p>Price: {{ order.price }}</p>
+      <div class="buttons">
+        <button>Cancel</button>
+        <button>Modify Booking</button>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<ng-template #noOrders>
+  <p>{{ noOrdersMessage }}</p>
+</ng-template>
