@@ -14,4 +14,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface FlightOrderRepository extends JpaRepository<FlightOrder, Long> {
+    FlightOrder findByUsername(String username);
 }
