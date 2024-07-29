@@ -36,9 +36,9 @@
 }
 
 .dropdown {
-  margin-top: 20px;
   display: flex;
-  justify-content: center;
+  gap: 10px;
+  margin-bottom: 1em;
 }
 
 .dropdown input {
@@ -177,16 +177,14 @@ line-height: 1.4;
 margin: 5px 0;
 }
 
-/* Button styles */
-.hotel-content .button {
-padding: 10px 20px;
-font-size: 1em;
-background-color: #007bff;
-color: #fff;
-border: none;
-border-radius: 5px;
-cursor: pointer;
-margin-top: 10px;
+.button {
+  background: linear-gradient(90deg, rgba(0,123,255,1) 0%, rgba(0,100,200,1) 100%);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .hotel-content .button:hover {
