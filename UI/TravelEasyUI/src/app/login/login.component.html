@@ -3,7 +3,8 @@
         <h2>Login to your account</h2>
         <form (submit)="login()">
             <input type="email" [(ngModel)]="username" name="username" placeholder="Username" required>
-            <input type="email" [(ngModel)]="password" name="password" placeholder="Password" required>
+            <input type="password" [(ngModel)]="password" name="password" placeholder="Password" required>
+           
             <input type="submit" value="Login">
         </form>
         <footer>

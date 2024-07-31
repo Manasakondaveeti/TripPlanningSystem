@@ -7,7 +7,7 @@
         <p>From: {{ item.origin }}</p>
         <p>To: {{ item.destination }}</p>
         <p>Departure: {{ item.departureTime }}</p>
-        <p>Price: {{ item.price }}</p>
+        <p>Price: {{ item.price  | currency }}</p>
       </div>
       <div *ngIf="item.type === 'carRental'">
        
@@ -15,12 +15,12 @@
        
         <p>Company: {{ item.company }}</p>
         <p>Location: {{ item.city }}</p>
-        <p>Price: {{ item.price }}</p>
+        <p>Price: {{ item.price  | currency }}</p>
       </div>
       <div *ngIf="item.type === 'hotel'">
         <p>Hotel Name: {{ item.name }}</p>
         <p>Location: {{ item.location }}</p>
-        <p>Price: {{ item.price }}</p>
+        <p>Price: {{ item.price  | currency }}</p>
       </div>
     
       <ngx-stripe-card [options]="cardOptions" [elementsOptions]="elementsOptions"></ngx-stripe-card>

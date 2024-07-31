@@ -25,7 +25,7 @@ html, body {
     width: 300px;
 }
 
-input[type="email"], input[type="submit"] {
+input[type="text"], input[type="email"], input[type="password"], input[type="submit"] {
     width: 100%;
     padding: 10px;
     margin: 10px 0;

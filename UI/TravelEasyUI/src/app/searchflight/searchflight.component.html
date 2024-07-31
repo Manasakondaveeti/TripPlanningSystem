@@ -23,7 +23,7 @@
         <h3>{{ flight.airline }}</h3>
         <p>From {{ flight.origin }} to {{ flight.destination }}</p>
         <p>Departure: {{ flight.departureTime }}</p>
-        <p>Price: {{ flight.price }}</p>
+        <p>Price: {{ flight.price  | currency }}</p>
         <button (click)="goToPayment(flight)" class="button">Book Now</button>
       </div>
     </li>
