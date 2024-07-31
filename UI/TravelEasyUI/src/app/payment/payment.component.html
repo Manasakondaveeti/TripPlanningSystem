@@ -7,14 +7,22 @@
         <p>From: {{ item.origin }}</p>
         <p>To: {{ item.destination }}</p>
         <p>Departure: {{ item.departureTime }}</p>
+        <p>Price: {{ item.price }}</p>
+      </div>
+      <div *ngIf="item.type === 'carRental'">
+       
+        
+       
+        <p>Company: {{ item.company }}</p>
+        <p>Location: {{ item.city }}</p>
+        <p>Price: {{ item.price }}</p>
       </div>
       <div *ngIf="item.type === 'hotel'">
         <p>Hotel Name: {{ item.name }}</p>
         <p>Location: {{ item.location }}</p>
-       <!--<p>Check-in: {{ item.checkInDate }}</p>
-        <p>Check-out: {{ item.checkOutDate }}</p>--> 
+        <p>Price: {{ item.price }}</p>
       </div>
-      <p>Price: {{ item.price }}</p>
+    
       <ngx-stripe-card [options]="cardOptions" [elementsOptions]="elementsOptions"></ngx-stripe-card>
       <button (click)="confirmPayment()" class="button">Confirm Payment</button>
     </div>

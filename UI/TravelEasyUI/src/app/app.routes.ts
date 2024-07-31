@@ -21,7 +21,7 @@ import { OrdersComponent } from './orders/orders.component';
 //export const routes: Routes = [];
 export const routes: Routes = [
     {path: 'orders', component: OrdersComponent},
-    { path: '',component: DashboardComponent },
+
     { path: 'payment-success', component: PaymentSuccessComponent },
     { path: 'login', component: LoginComponent },
     { path: 'attraction', component: AttractionsComponent },
@@ -34,7 +34,7 @@ export const routes: Routes = [
     {path: 'the-team', component: TheTeamComponent},
     {path: 'our-mission', component: OurMissionComponent},
     {path: 'car-rental', component: CarRentalListComponent},
-    { path: '**', redirectTo: '', pathMatch: 'full' },
+    { path: '**', redirectTo: 'search-flight', pathMatch: 'full' },
     {path: 'our-story', component: OurStoryComponent},
     {path: 'the-team', component: TheTeamComponent},
     {path: 'our-mission', component: OurMissionComponent},

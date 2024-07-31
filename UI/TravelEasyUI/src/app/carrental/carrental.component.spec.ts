@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { FormsModule } from '@angular/forms';
 import { CarRentalListComponent } from './carrental.component';
 
 describe('CarRentalListComponent', () => {
@@ -8,10 +8,10 @@ describe('CarRentalListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CarRentalListComponent]
-    })
-    .compileComponents();
-    
+      declarations: [CarRentalListComponent],
+      imports: [FormsModule] // Import FormsModule for ngModel
+    }).compileComponents();
+
     fixture = TestBed.createComponent(CarRentalListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

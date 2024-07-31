@@ -20,7 +20,16 @@ public class CarRental {
     private String city;
     private LocalDate pickUpDate;
     private LocalDate dropOffDate;
-    private BigDecimal pricePerDay;
+    private BigDecimal price;
+    private String imageUrl;
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
 
     // Getters and Setters
 
@@ -64,11 +73,11 @@ public class CarRental {
         this.dropOffDate = dropOffDate;
     }
 
-    public BigDecimal getPricePerDay() {
-        return pricePerDay;
+    public BigDecimal getPrice() {
+        return price;
     }
 
-    public void setPricePerDay(BigDecimal pricePerDay) {
-        this.pricePerDay = pricePerDay;
+    public void setPrice(BigDecimal pricePerDay) {
+        this.price = price ;
     }
 }

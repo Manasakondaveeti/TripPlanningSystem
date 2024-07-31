@@ -18,6 +18,7 @@
   <h2>Flight Results</h2>
   <ul>
     <li *ngFor="let flight of flights" class="flight-item">
+      <img [src]="flight.imageUrl" alt="{{ flight.airline }}" class="flight-img">
       <div class="flight-details">
         <h3>{{ flight.airline }}</h3>
         <p>From {{ flight.origin }} to {{ flight.destination }}</p>

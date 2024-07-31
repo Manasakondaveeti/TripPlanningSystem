@@ -39,15 +39,31 @@
     margin-top: 20px;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .dropdown input {
     padding: 10px;
-    margin: 0 10px;
+    margin: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
     font-size: 1em;
     width: 200px;
+}
+
+.button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #007bff; /* Adjust button color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
 }
 
 /* Styles for the car rental list section */

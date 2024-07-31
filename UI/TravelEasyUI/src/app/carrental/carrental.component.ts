@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Observable } from 'rxjs';
 import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
@@ -10,14 +9,15 @@ import { NavigationExtras, Router } from '@angular/router';
   standalone: true,
   imports: [
     CommonModule,
-    FormsModule,
-    
+    FormsModule
   ],
   templateUrl: './carrental.component.html',
   styleUrls: ['./carrental.component.css']
 })
 export class CarRentalListComponent implements OnInit {
-  selectedDate: string = '';
+  location: string = '';
+  pickUpDate: string = '';
+  dropOffDate: string = '';
   budget: number = 0;
   carRentals: any[] = [];
   selectedCar: any | undefined;
@@ -26,15 +26,15 @@ export class CarRentalListComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
-    this.selectedDate = ''; // Initialize selected date
-    this.budget = 0; // Initialize budget
-    this.searchCarRentals(); // Fetch car rentals based on selectedDate and budget
+    // Initialize values if needed
   }
 
   searchCarRentals(): void {
-    if (this.selectedDate && this.budget !== null) {
+    if (this.location && this.pickUpDate && this.dropOffDate && this.budget !== null) {
       let params = new HttpParams()
-        .set('date', this.selectedDate)
+        .set('city', this.location)
+        .set('pickUpDate', this.pickUpDate)
+        .set('dropOffDate', this.dropOffDate)
         .set('budget', this.budget.toString());
 
       this.http.get<any[]>(this.apiUrl, { params }).subscribe(data => {
@@ -52,7 +52,7 @@ export class CarRentalListComponent implements OnInit {
   goToPayment(car: any): void {
     const navigationExtras: NavigationExtras = {
       state: {
-        car: car
+        item: { ...car, type: 'carRental' }
       }
     };
     this.router.navigate(['/payment'], navigationExtras);

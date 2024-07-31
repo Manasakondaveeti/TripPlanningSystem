@@ -1,27 +1,28 @@
 <div class="banner">
     <div class="overlay">
-      <div class="text-content">
-        <h1>Available Car Rentals</h1>
-        <p>Select from a range of available car rentals based on your preferred dates and budget. Whether you’re looking for economy or luxury, we have options that cater to your needs. Find the perfect car and enjoy a comfortable ride.</p>
-        <div class="dropdown">
-          <input type="date" placeholder="Select date" [(ngModel)]="selectedDate">
-          <input type="number" placeholder="Enter budget" [(ngModel)]="budget" (blur)="searchCarRentals()">
-          <button (click)="searchCarRentals()" class="button">Search</button>
+        <div class="text-content">
+            <h1>Available Car Rentals</h1>
+            <p>Select from a range of available car rentals based on your preferred dates and budget. Whether you’re looking for economy or luxury, we have options that cater to your needs. Find the perfect car and enjoy a comfortable ride.</p>
+            <div class="dropdown">
+                <input type="text" placeholder="Enter location" [(ngModel)]="location">
+                <input type="date" placeholder="Select pick-up date" [(ngModel)]="pickUpDate">
+                <input type="date" placeholder="Select drop-off date" [(ngModel)]="dropOffDate">
+                <input type="number" placeholder="Enter budget" [(ngModel)]="budget">
+                <button (click)="searchCarRentals()" class="button">Search</button>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-  
-  <div class="car-rental-list" *ngIf="carRentals.length > 0">
-    <h2>Car Rentals Available on {{ selectedDate }}</h2>
+</div>
+
+<div class="car-rental-list" *ngIf="carRentals.length > 0">
+    <h2>Car Rentals Available from {{ pickUpDate }} to {{ dropOffDate }} in {{ location }}</h2>
     <div class="car-rental-item" *ngFor="let car of carRentals" (click)="selectCar(car)">
-      <img [src]="car.imageUrl" alt="{{ car.name }}" class="car-img">
-      <div class="car-content">
-        <h3>{{ car.name }}</h3>
-        <p>{{ car.description }}</p>
-        <p>Price: {{ car.price }}</p>
-        <button (click)="goToPayment(car)" class="button">Book Now</button>
-      </div>
+        <img [src]="car.imageUrl" alt="{{ car.company }}" class="car-img">
+        <div class="car-content">
+            <h3>{{ car.company }}</h3>
+            <p>City: {{ car.city }}</p>
+            <p>Price per day: {{ car.price | currency }}</p>
+            <button (click)="goToPayment(car)" class="button">Book Now</button>
+        </div>
     </div>
-  </div>
-  
+</div>
